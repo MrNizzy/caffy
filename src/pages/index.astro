@@ -2,42 +2,335 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, SITE_TITLE_LONG } from "../consts";
+import {
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  SITE_TITLE_LONG,
+  APP_VERSION,
+} from "../consts";
 import PlayStoreButton from "../components/PlayStoreButton.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
     <Header />
-    <main>
-      <h1>
-        {SITE_TITLE_LONG} 🇨🇴
-      </h1>
-      <img
-        src="/blog-placeholder-1.jpg"
-        alt="Imagen de la aplicación Caffy"
-        width="1000"
-        height="500"
-        loading="lazy"
-        decoding="async"
-      />
-      <p>
-        ¡Descarga ahora nuestra aplicación móvil para Android! Explora lo mejor
-        de Colombia: su cultura, gastronomía, lugares turísticos y mucho más,
-        todo en un solo lugar.
-      </p>
-      <p>
-        Con nuestra aplicación, podrás descubrir los mejores destinos
-        turísticos, restaurantes, eventos y actividades en Colombia. Además,
-        podrás disfrutar de contenido exclusivo, recomendaciones personalizadas
-        y noticias sobre el país.
-      </p>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="title">{SITE_TITLE_LONG} <span class="flag">🇨🇴</span></h1>
+        <p class="tagline">{SITE_DESCRIPTION}</p>
+        <PlayStoreButton />
+      </div>
+      <div class="hero-image">
+        <img
+          src="/mockup_landing.jpeg"
+          alt="Aplicación Caffy - Colombia"
+          width="600"
+          height="400"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <h2>Descubre Colombia como nunca antes</h2>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Automobile.png"
+              alt="Automobile"
+              width="64"
+              height="64"
+            />
+          </div>
+          <h3>Turismo</h3>
+          <p>
+            Explora los destinos más increíbles de Colombia, desde playas
+            paradisíacas hasta montañas imponentes.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Cook%20Medium%20Skin%20Tone.png"
+              alt="Cook Medium Skin Tone"
+              width="64"
+              height="64"
+            />
+          </div>
+          <h3>Gastronomía</h3>
+          <p>
+            Descubre los sabores auténticos de la cocina colombiana, una fusión
+            de culturas y tradiciones.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Artist%20Medium-Dark%20Skin%20Tone.png"
+              alt="Artist Medium-Dark Skin Tone"
+              width="64"
+              height="64"
+            />
+          </div>
+          <h3>Cultura</h3>
+          <p>
+            Sumérgete en las tradiciones, festivales y expresiones culturales de
+            cada región del país.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Butterfly.png"
+              alt="Butterfly"
+              width="64"
+              height="64"
+            />
+          </div>
+          <h3>Naturaleza</h3>
+          <p>
+            Conoce la biodiversidad única de Colombia, desde selvas tropicales
+            hasta desiertos áridos. Anímate a explorar la flora y fauna de
+            nuestro hermoso país.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img
+              src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Yellow%20Heart.png"
+              alt="Yellow Heart"
+              width="64"
+              height="64"
+            />
+          </div>
+          <h3>Historia y Patrimonio</h3>
+          <p>
+            Descubre la rica historia de Colombia a través de sus monumentos,
+            sitios arqueológicos, historia y tradiciones.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Preview Section -->
+    <section class="app-preview">
+      <div class="preview-content">
+        <h2>La guía definitiva de Colombia en tu bolsillo</h2>
+        <p>
+          Con nuestra aplicación, podrás descubrir lo mejor de Colombia de una
+          manera divertida y educativa. Desde recomendaciones de lugares
+          turísticos hasta información sobre la cultura y tradiciones de cada
+          región, Caffy es tu compañero ideal para explorar el país. ¡No te
+          quedes sin conocer lo que Colombia tiene para ofrecer!
+        </p>
+        <ul class="app-benefits">
+          <li>✅ Contenido 100% en español</li>
+          <li>✅ Información actualizada y verificada</li>
+          <li>✅ Mapa interactivo con geolocalización</li>
+          <li>✅ Información sobre cultura y tradiciones</li>
+          <li>✅ Actualizada regularmente</li>
+          <li>✅ Recomendaciones personalizadas</li>
+          <li>✅ Interfaz intuitiva y fácil de usar</li>
+        </ul>
+        <div class="cta-container">
+          <PlayStoreButton />
+          <p class="version-info">Versión actual: {APP_VERSION}</p>
+        </div>
+      </div>
+      <div class="preview-image">
+        <img
+          src="/mockup.jpeg"
+          alt="Vista previa de la aplicación Caffy"
+          width="720"
+          height="480"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+      <h2>¡Descarga ahora y comienza tu aventura mágica!</h2>
       <PlayStoreButton />
-      <Footer />
-    </main>
+    </section>
+
+    <Footer />
+
+    <style>
+      body {
+        --accent-gradient: linear-gradient(
+          45deg,
+          #f59e0b,
+          #ef4444 30%,
+          #7c3aed 60%
+        );
+        font-family: system-ui, sans-serif;
+        line-height: 1.6;
+      }
+
+      section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.2;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+        padding: 3rem 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .hero-content {
+        padding-right: 1rem;
+      }
+
+      .title {
+        font-size: 4rem;
+        font-weight: 800;
+        margin: 0;
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+      }
+
+      .flag {
+        -webkit-text-fill-color: initial;
+      }
+
+      .tagline {
+        font-size: 1.5rem;
+        margin: 1rem 0 2rem;
+      }
+
+      .hero-image img {
+        border-radius: 1rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .features {
+        text-align: center;
+        background-color: #f9fafb;
+        border-radius: 12px;
+        padding: 3rem 1rem;
+        margin: 2rem auto;
+      }
+
+      .feature-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .feature-card {
+        flex: 1 1 300px;
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .app-preview {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 2rem;
+        align-items: center;
+        margin: 3rem auto;
+      }
+
+      @media (max-width: 768px) {
+        .app-preview {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .app-benefits {
+        margin: 1.5rem 0;
+        padding-left: 1rem;
+        list-style: none;
+      }
+
+      .app-benefits li {
+        margin-bottom: 0.5rem;
+      }
+
+      .cta-container {
+        margin-top: 2rem;
+      }
+
+      .version-info {
+        font-size: 0.9rem;
+        color: #6b7280;
+        margin-top: 0.5rem;
+      }
+
+      .preview-image img {
+        border-radius: 24px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        height: auto;
+        max-height: 600px;
+        object-fit: cover;
+      }
+
+      .final-cta {
+        text-align: center;
+        background-image: var(--accent-gradient);
+        background-size: 400%;
+        background-position: 0%;
+        padding: 3rem 1rem;
+        border-radius: 12px;
+        color: white;
+        margin: 2rem auto;
+      }
+
+      .final-cta h2 {
+        margin-bottom: 1.5rem;
+      }
+    </style>
   </body>
 </html>
