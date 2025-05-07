@@ -2,6 +2,7 @@
 import Layout from "../layouts/BlogPost.astro";
 import DeveloperCard from "../components/DeveloperCard.astro";
 import AppVersion from "../components/AppVersion.astro";
+import CategoryCard from "../components/CategoryCard.astro";
 
 const developers = [
   {
@@ -34,6 +35,46 @@ const developers = [
     skills: ["Python", "SQL", "Angular", "Power BI"],
     github: "https://github.com/Edwinburgos99",
     linkedin: "https://linkedin.com/in/edwin-burgos",
+  },
+];
+
+const categories = [
+  {
+    title: "Geografía",
+    items: [
+      "Regiones",
+      "Departamentos",
+      "Municipios",
+      "Sitios turísticos",
+      "Clima",
+    ],
+  },
+  {
+    title: "Naturaleza",
+    items: ["Especies nativas", "Especies invasoras", "Frutas"],
+  },
+  {
+    title: "Cultura",
+    items: [
+      "Música y danzas",
+      "Artesanías",
+      "Lenguas indígenas",
+      "Mitos y leyendas",
+      "Deportes",
+    ],
+  },
+  {
+    title: "Historia y Política",
+    items: [
+      "Historia de Colombia",
+      "Presidentes",
+      "Constitución política",
+      "Código de policía",
+    ],
+  },
+  {
+    title: "Gastronomía",
+    items: ["Recetas de cocina"],
   },
 ];
 ---
@@ -76,49 +117,11 @@ const developers = [
   <section class="content-categories">
     <h2>Explora Colombia</h2>
     <div class="categories-grid">
-      <div class="category">
-        <h3>Geografía</h3>
-        <ul>
-          <li>Regiones</li>
-          <li>Departamentos</li>
-          <li>Municipios</li>
-          <li>Sitios turísticos</li>
-          <li>Clima</li>
-        </ul>
-      </div>
-      <div class="category">
-        <h3>Naturaleza</h3>
-        <ul>
-          <li>Especies nativas</li>
-          <li>Especies invasoras</li>
-          <li>Frutas</li>
-        </ul>
-      </div>
-      <div class="category">
-        <h3>Cultura</h3>
-        <ul>
-          <li>Música y danzas</li>
-          <li>Artesanías</li>
-          <li>Lenguas indígenas</li>
-          <li>Mitos y leyendas</li>
-          <li>Deportes</li>
-        </ul>
-      </div>
-      <div class="category">
-        <h3>Historia y Política</h3>
-        <ul>
-          <li>Historia de Colombia</li>
-          <li>Presidentes</li>
-          <li>Constitución política</li>
-          <li>Código de policía</li>
-        </ul>
-      </div>
-      <div class="category">
-        <h3>Gastronomía</h3>
-        <ul>
-          <li>Recetas de cocina</li>
-        </ul>
-      </div>
+      {
+        categories.map((category) => (
+          <CategoryCard title={category.title} items={category.items} />
+        ))
+      }
     </div>
   </section>
 
@@ -206,47 +209,11 @@ const developers = [
     position: relative;
   }
 
-  .features li::before {
-    content: "✨";
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-  }
-
   .categories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
-    margin-top: 2rem;
-  }
-
-  .category {
-    background-color: rgba(var(--accent-light-rgb), 0.1);
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition:
-      transform 0.3s,
-      box-shadow 0.3s;
-  }
-
-  .category:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  .category h3 {
-    margin-top: 0;
-    color: var(--accent);
-    font-size: 1.5rem;
-  }
-
-  .category ul {
-    padding-left: 1.5rem;
-  }
-
-  .category li {
-    margin-bottom: 0.5rem;
+    justify-content: center;
   }
 
   .developers {
@@ -257,34 +224,6 @@ const developers = [
   }
 
   /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .categories-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .developers {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* Dark mode specific adjustments */
-  :root.dark .developer {
-    background-color: rgba(var(--accent-dark-rgb), 0.2);
-  }
-
-  :root.dark .developer-skills span {
-    background-color: rgba(var(--accent-dark-rgb), 0.3);
-    color: var(--accent-light);
-  }
-
-  :root.dark .developer-skills span:hover {
-    background-color: rgba(var(--accent-dark-rgb), 0.5);
-  }
-
-  :root.dark .developer-social a:hover {
-    color: var(--accent-light);
-  }
-
   @media (max-width: 768px) {
     .categories-grid,
     .developers {
