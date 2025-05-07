@@ -1,62 +1,513 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import Layout from "../layouts/BlogPost.astro";
+import IconX from "../components/icons/IconX.astro";
+import IconLinkedIn from "../components/icons/IconLinkedIn.astro";
+import { APP_VERSION } from "../consts";
+import IconLink from "../components/icons/IconLink.astro";
+import IconGitHub from "../components/icons/IconGitHub.astro";
 ---
 
 <Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage="/blog-placeholder-about.jpg"
+  title="Acerca de Caffy"
+  description="Conoce más sobre Caffy, la aplicación que te conecta con lo mejor de Colombia."
+  pubDate={new Date("May 07 2025")}
 >
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+  <div class="hero-section">
+    <img src="/icon-fill.svg" alt="Logo de Caffy" class="logo" />
+    <h1>¡Descubre Colombia en la palma de tu mano!</h1>
+    <p class="tagline">
+      Explora cada rincón de este país mágico, desde sus majestuosas montañas
+      hasta sus exuberantes selvas. Sumérgete en su rica cultura, tradiciones
+      vibrantes y la calidez de su gente. Encuentra información detallada sobre
+      regiones, departamentos, municipios, sitios turísticos, especies nativas y
+      mucho más. ¡Tu aventura colombiana comienza aquí!
+    </p>
+  </div>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+  <section class="features">
+    <h2>¿Qué te ofrece esta app?</h2>
+    <ul>
+      <li>
+        <strong>Exploración interactiva:</strong> Mapas detallados y herramientas
+        de búsqueda para encontrar lo que buscas.
+      </li>
+      <li>
+        <strong>Información actualizada:</strong> Contenido revisado y ampliado constantemente
+        para ofrecerte la información más precisa.
+      </li>
+      <li>
+        <strong>Experiencia personalizada:</strong> Guarda tus lugares favoritos,
+        crea listas de viajes y comparte tus descubrimientos con amigos.
+      </li>
+    </ul>
+  </section>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+  <section class="content-categories">
+    <h2>Explora Colombia</h2>
+    <div class="categories-grid">
+      <div class="category">
+        <h3>Geografía</h3>
+        <ul>
+          <li>Regiones</li>
+          <li>Departamentos</li>
+          <li>Municipios</li>
+          <li>Sitios turísticos</li>
+          <li>Clima</li>
+        </ul>
+      </div>
+      <div class="category">
+        <h3>Naturaleza</h3>
+        <ul>
+          <li>Especies nativas</li>
+          <li>Especies invasoras</li>
+          <li>Frutas</li>
+        </ul>
+      </div>
+      <div class="category">
+        <h3>Cultura</h3>
+        <ul>
+          <li>Música y danzas</li>
+          <li>Artesanías</li>
+          <li>Lenguas indígenas</li>
+          <li>Mitos y leyendas</li>
+          <li>Deportes</li>
+        </ul>
+      </div>
+      <div class="category">
+        <h3>Historia y Política</h3>
+        <ul>
+          <li>Historia de Colombia</li>
+          <li>Presidentes</li>
+          <li>Constitución política</li>
+          <li>Código de policía</li>
+        </ul>
+      </div>
+      <div class="category">
+        <h3>Gastronomía</h3>
+        <ul>
+          <li>Recetas de cocina</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+  <section class="development">
+    <h2>Acerca del desarrollador</h2>
+    <p>
+      La aplicación fue desarrollada por <a
+        href="https://github.com/Mist-Code-co"
+        target="_blank">MistCode</a
+      > con <a href="https://angular.io/" target="_blank">Angular</a> y <a
+        href="https://ionicframework.com/"
+        target="_blank">Ionic</a
+      > en <a href="https://www.javascript.com/" target="_blank">JavaScript</a> y
+      <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>.
+    </p>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+    <h3>Equipo de Desarrollo</h3>
+    <div class="developers">
+      <div class="developer">
+        <div class="developer-header">
+          <img
+            src="https://avatars.githubusercontent.com/u/12632082?v=4"
+            alt="MrNizzy"
+            class="developer-avatar"
+          />
+          <div class="developer-name">
+            <h4>Brallan Orlando Hernandez Pardo</h4>
+            <p class="developer-role">Desarrollador Full Stack</p>
+          </div>
+        </div>
+        <p class="developer-bio">
+          Apasionado por el desarrollo web y móvil. Especialista en Angular,
+          Ionic y tecnologías de backend. Siempre en busca de nuevos retos y
+          aprendizajes.
+        </p>
+        <div class="developer-skills">
+          <span>Angular</span>
+          <span>Ionic</span>
+          <span>TypeScript</span>
+          <span>Node.js</span>
+          <span>SASS</span>
+          <span>Python</span>
+          <span>MySQL</span>
+          <span>MongoDB</span>
+          <span>PostgreSQL</span>
+          <span>Astro</span>
+          <span>NestJS</span>
+        </div>
+        <div class="developer-social">
+          <a
+            href="https://github.com/MrNizzy/"
+            target="_blank"
+            aria-label="GitHub de Brallan"
+          >
+            <IconGitHub />
+          </a>
+          <a
+            href="https://linkedin.com/in/MrNizzy"
+            target="_blank"
+            aria-label="LinkedIn de Brallan"
+          >
+            <IconLinkedIn />
+          </a>
+          <a
+            href="https://x.com/Mr__Nizzy"
+            target="_blank"
+            aria-label="X de MrNizzy"
+          >
+            <IconX />
+          </a>
+          <a
+            href="https://mrnizzy.me/"
+            target="_blank"
+            aria-label="Portafolio de MrNizzy (Brallan)"
+          >
+            <IconLink />
+          </a>
+        </div>
+      </div>
+
+      <div class="developer">
+        <div class="developer-header">
+          <img
+            src="https://avatars.githubusercontent.com/u/102494596?v=4"
+            alt="Edwin B. Piraquive"
+            class="developer-avatar"
+          />
+          <div class="developer-name">
+            <h4>Edwin Burgos Piraquive</h4>
+            <p class="developer-role">Desarrollador y analista de datos</p>
+          </div>
+        </div>
+        <p class="developer-bio">
+          Especialista en análisis de datos y visualización. Enfocado en
+          soluciones de software basadas en datos.
+        </p>
+        <div class="developer-skills">
+          <span>Python</span>
+          <span>SQL</span>
+          <span>Angular</span>
+          <span>Power BI</span>
+        </div>
+        <div class="developer-social">
+          <a
+            href="https://github.com/Edwinburgos99"
+            target="_blank"
+            aria-label="GitHub de Edwin"
+          >
+            <IconGitHub />
+          </a>
+          <a
+            href="https://linkedin.com/in/edwin-burgos"
+            target="_blank"
+            aria-label="LinkedIn de Edwin"
+          >
+            <IconLinkedIn />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="app-info">
+    <h2>Versión de la aplicación</h2>
+    <p>
+      v{APP_VERSION}
+    </p>
+    <a
+      href="https://play.google.com/store/apps/details?id=co.mist.caffy"
+      class="play-store-button"
+      target="_blank"
+    >
+      <img src="/google-play-badge.png" alt="Disponible en Google Play" />
+    </a>
+  </section>
 </Layout>
+
+<style>
+  .hero-section {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .logo {
+    width: 150px;
+    margin: 0 auto 1rem;
+    display: block;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--heading-color);
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin: 2.5rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-light);
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  .features ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .features li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .features li::before {
+    content: "✨";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .category {
+    background-color: rgba(var(--accent-light-rgb), 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+  }
+
+  .category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .category h3 {
+    margin-top: 0;
+    color: var(--accent);
+    font-size: 1.5rem;
+  }
+
+  .category ul {
+    padding-left: 1.5rem;
+  }
+
+  .category li {
+    margin-bottom: 0.5rem;
+  }
+
+  .developers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .developer {
+    background-color: rgba(var(--accent-light-rgb), 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: left;
+    cursor: default;
+    user-select: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+  }
+
+  .developer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .developer-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .developer-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    border: 3px solid var(--accent-light);
+    transition: transform 0.3s;
+  }
+
+  .developer:hover .developer-avatar {
+    transform: scale(1.05);
+  }
+
+  .developer-name {
+    flex: 1;
+  }
+
+  .developer-name h4 {
+    margin: 0;
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .developer-role {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-color);
+  }
+
+  .developer-bio {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+  }
+
+  .developer-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .developer-skills span {
+    background-color: rgba(var(--accent-light-rgb), 0.2);
+    color: var(--accent);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition:
+      background-color 0.3s,
+      transform 0.3s;
+  }
+
+  .developer-skills span:hover {
+    background-color: rgba(var(--accent-light-rgb), 0.4);
+    transform: scale(1.05);
+  }
+
+  .developer-social {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  .developer-social a {
+    color: var(--text-color);
+    transition:
+      transform 0.3s,
+      color 0.3s;
+  }
+
+  .developer-social a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  .developer-social svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+
+  .app-info {
+    text-align: center;
+  }
+
+  .play-store-button {
+    display: inline-block;
+    margin-top: 1rem;
+    transition: transform 0.3s;
+  }
+
+  .play-store-button:hover {
+    transform: scale(1.05);
+  }
+
+  .play-store-button img {
+    max-width: 200px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .categories-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .developers {
+      grid-template-columns: 1fr;
+    }
+
+    .developer-header {
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+    }
+
+    .developer-avatar {
+      margin-right: 1rem;
+      margin-bottom: 0;
+      width: 60px;
+      height: 60px;
+    }
+
+    .developer-name {
+      flex: 1;
+    }
+  }
+
+  /* Dark mode specific adjustments */
+  :root.dark .developer {
+    background-color: rgba(var(--accent-dark-rgb), 0.2);
+  }
+
+  :root.dark .developer-skills span {
+    background-color: rgba(var(--accent-dark-rgb), 0.3);
+    color: var(--accent-light);
+  }
+
+  :root.dark .developer-skills span:hover {
+    background-color: rgba(var(--accent-dark-rgb), 0.5);
+  }
+
+  :root.dark .developer-social a:hover {
+    color: var(--accent-light);
+  }
+
+  @media (max-width: 768px) {
+    .categories-grid,
+    .developers {
+      grid-template-columns: 1fr;
+    }
+
+    .developer-header {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .developer-avatar {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+    }
+  }
+</style>
