@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_TITLE_LONG } from "../consts";
+import PlayStoreButton from "../components/PlayStoreButton.astro";
 ---
 
 <!doctype html>
@@ -35,21 +36,7 @@ import { SITE_TITLE, SITE_DESCRIPTION, SITE_TITLE_LONG } from "../consts";
         podrás disfrutar de contenido exclusivo, recomendaciones personalizadas
         y noticias sobre el país.
       </p>
-      <a
-        href="https://play.google.com/store/apps/details?id=me.mrnizzy.colombia"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img
-          src="/google-play-badge.png"
-          alt="Google Play Store"
-          width="200"
-          height="75"
-          loading="lazy"
-          decoding="async"
-          class="google-play-badge"
-        />
-      </a>
+      <PlayStoreButton />
       <Footer />
     </main>
   </body>

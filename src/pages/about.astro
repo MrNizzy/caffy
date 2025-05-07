@@ -1,10 +1,41 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
-import IconX from "../components/icons/IconX.astro";
-import IconLinkedIn from "../components/icons/IconLinkedIn.astro";
-import { APP_VERSION } from "../consts";
-import IconLink from "../components/icons/IconLink.astro";
-import IconGitHub from "../components/icons/IconGitHub.astro";
+import DeveloperCard from "../components/DeveloperCard.astro";
+import AppVersion from "../components/AppVersion.astro";
+
+const developers = [
+  {
+    name: "Brallan O. Hernandez P.",
+    role: "Desarrollador Full Stack",
+    bio: "Apasionado por el desarrollo web y móvil. Especialista en Angular, React y desarrollo de aplicaciones híbridas.",
+    avatar: "https://avatars.githubusercontent.com/u/12632082?v=4",
+    skills: [
+      "Angular",
+      "Ionic",
+      "TypeScript",
+      "Node.js",
+      "SASS",
+      "Python",
+      "MySQL",
+      "PostgreSQL",
+      "Astro",
+      "NestJS",
+    ],
+    github: "https://github.com/MrNizzy/",
+    linkedin: "https://linkedin.com/in/MrNizzy",
+    twitter: "https://x.com/Mr__Nizzy",
+    website: "https://mrnizzy.me/",
+  },
+  {
+    name: "Edwin B. Piraquive",
+    role: "Desarrollador y analista de datos",
+    bio: "Especialista en análisis de datos y visualización. Enfocado en soluciones de software basadas en datos.",
+    avatar: "https://avatars.githubusercontent.com/u/102494596?v=4",
+    skills: ["Python", "SQL", "Angular", "Power BI"],
+    github: "https://github.com/Edwinburgos99",
+    linkedin: "https://linkedin.com/in/edwin-burgos",
+  },
+];
 ---
 
 <Layout
@@ -106,122 +137,25 @@ import IconGitHub from "../components/icons/IconGitHub.astro";
 
     <h3>Equipo de Desarrollo</h3>
     <div class="developers">
-      <div class="developer">
-        <div class="developer-header">
-          <img
-            src="https://avatars.githubusercontent.com/u/12632082?v=4"
-            alt="MrNizzy"
-            class="developer-avatar"
+      {
+        developers.map((developer) => (
+          <DeveloperCard
+            name={developer.name}
+            role={developer.role}
+            bio={developer.bio}
+            avatar={developer.avatar}
+            skills={developer.skills}
+            github={developer.github}
+            linkedin={developer.linkedin}
+            twitter={developer.twitter}
+            website={developer.website}
           />
-          <div class="developer-name">
-            <h4>Brallan Orlando Hernandez Pardo</h4>
-            <p class="developer-role">Desarrollador Full Stack</p>
-          </div>
-        </div>
-        <p class="developer-bio">
-          Apasionado por el desarrollo web y móvil. Especialista en Angular,
-          Ionic y tecnologías de backend. Siempre en busca de nuevos retos y
-          aprendizajes.
-        </p>
-        <div class="developer-skills">
-          <span>Angular</span>
-          <span>Ionic</span>
-          <span>TypeScript</span>
-          <span>Node.js</span>
-          <span>SASS</span>
-          <span>Python</span>
-          <span>MySQL</span>
-          <span>MongoDB</span>
-          <span>PostgreSQL</span>
-          <span>Astro</span>
-          <span>NestJS</span>
-        </div>
-        <div class="developer-social">
-          <a
-            href="https://github.com/MrNizzy/"
-            target="_blank"
-            aria-label="GitHub de Brallan"
-          >
-            <IconGitHub />
-          </a>
-          <a
-            href="https://linkedin.com/in/MrNizzy"
-            target="_blank"
-            aria-label="LinkedIn de Brallan"
-          >
-            <IconLinkedIn />
-          </a>
-          <a
-            href="https://x.com/Mr__Nizzy"
-            target="_blank"
-            aria-label="X de MrNizzy"
-          >
-            <IconX />
-          </a>
-          <a
-            href="https://mrnizzy.me/"
-            target="_blank"
-            aria-label="Portafolio de MrNizzy (Brallan)"
-          >
-            <IconLink />
-          </a>
-        </div>
-      </div>
-
-      <div class="developer">
-        <div class="developer-header">
-          <img
-            src="https://avatars.githubusercontent.com/u/102494596?v=4"
-            alt="Edwin B. Piraquive"
-            class="developer-avatar"
-          />
-          <div class="developer-name">
-            <h4>Edwin Burgos Piraquive</h4>
-            <p class="developer-role">Desarrollador y analista de datos</p>
-          </div>
-        </div>
-        <p class="developer-bio">
-          Especialista en análisis de datos y visualización. Enfocado en
-          soluciones de software basadas en datos.
-        </p>
-        <div class="developer-skills">
-          <span>Python</span>
-          <span>SQL</span>
-          <span>Angular</span>
-          <span>Power BI</span>
-        </div>
-        <div class="developer-social">
-          <a
-            href="https://github.com/Edwinburgos99"
-            target="_blank"
-            aria-label="GitHub de Edwin"
-          >
-            <IconGitHub />
-          </a>
-          <a
-            href="https://linkedin.com/in/edwin-burgos"
-            target="_blank"
-            aria-label="LinkedIn de Edwin"
-          >
-            <IconLinkedIn />
-          </a>
-        </div>
-      </div>
+        ))
+      }
     </div>
   </section>
-  <section class="app-info">
-    <h2>Versión de la aplicación</h2>
-    <p>
-      v{APP_VERSION}
-    </p>
-    <a
-      href="https://play.google.com/store/apps/details?id=co.mist.caffy"
-      class="play-store-button"
-      target="_blank"
-    >
-      <img src="/google-play-badge.png" alt="Disponible en Google Play" />
-    </a>
-  </section>
+
+  <AppVersion />
 </Layout>
 
 <style>
@@ -322,132 +256,6 @@ import IconGitHub from "../components/icons/IconGitHub.astro";
     margin-top: 2rem;
   }
 
-  .developer {
-    background-color: rgba(var(--accent-light-rgb), 0.1);
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: left;
-    cursor: default;
-    user-select: none;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition:
-      transform 0.3s,
-      box-shadow 0.3s;
-  }
-
-  .developer:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .developer-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-
-  .developer-avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-right: 1rem;
-    border: 3px solid var(--accent-light);
-    transition: transform 0.3s;
-  }
-
-  .developer:hover .developer-avatar {
-    transform: scale(1.05);
-  }
-
-  .developer-name {
-    flex: 1;
-  }
-
-  .developer-name h4 {
-    margin: 0;
-    color: var(--accent);
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .developer-role {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--text-color);
-  }
-
-  .developer-bio {
-    font-size: 0.9rem;
-    color: var(--text-color);
-    margin-bottom: 1rem;
-  }
-
-  .developer-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .developer-skills span {
-    background-color: rgba(var(--accent-light-rgb), 0.2);
-    color: var(--accent);
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    transition:
-      background-color 0.3s,
-      transform 0.3s;
-  }
-
-  .developer-skills span:hover {
-    background-color: rgba(var(--accent-light-rgb), 0.4);
-    transform: scale(1.05);
-  }
-
-  .developer-social {
-    display: flex;
-    justify-content: flex-start;
-    gap: 1.2rem;
-    margin-top: 1rem;
-  }
-
-  .developer-social a {
-    color: var(--text-color);
-    transition:
-      transform 0.3s,
-      color 0.3s;
-  }
-
-  .developer-social a:hover {
-    color: var(--accent);
-    transform: translateY(-3px);
-  }
-
-  .developer-social svg {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-  }
-
-  .app-info {
-    text-align: center;
-  }
-
-  .play-store-button {
-    display: inline-block;
-    margin-top: 1rem;
-    transition: transform 0.3s;
-  }
-
-  .play-store-button:hover {
-    transform: scale(1.05);
-  }
-
-  .play-store-button img {
-    max-width: 200px;
-  }
-
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .categories-grid {
@@ -456,23 +264,6 @@ import IconGitHub from "../components/icons/IconGitHub.astro";
 
     .developers {
       grid-template-columns: 1fr;
-    }
-
-    .developer-header {
-      flex-direction: row;
-      align-items: center;
-      text-align: left;
-    }
-
-    .developer-avatar {
-      margin-right: 1rem;
-      margin-bottom: 0;
-      width: 60px;
-      height: 60px;
-    }
-
-    .developer-name {
-      flex: 1;
     }
   }
 
@@ -498,16 +289,6 @@ import IconGitHub from "../components/icons/IconGitHub.astro";
     .categories-grid,
     .developers {
       grid-template-columns: 1fr;
-    }
-
-    .developer-header {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .developer-avatar {
-      margin-right: 0;
-      margin-bottom: 0.5rem;
     }
   }
 </style>

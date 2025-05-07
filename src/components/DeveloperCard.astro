@@ -1,0 +1,243 @@
+---
+import IconGitHub from "./icons/IconGitHub.astro";
+import IconLink from "./icons/IconLink.astro";
+import IconLinkedIn from "./icons/IconLinkedIn.astro";
+import IconX from "./icons/IconX.astro";
+
+interface Props {
+  name: string;
+  role: string;
+  bio: string;
+  avatar: string;
+  skills: string[];
+  github?: string;
+  linkedin?: string;
+  twitter?: string;
+  website?: string;
+}
+
+const { name, role, bio, avatar, skills, github, linkedin, twitter, website } =
+  Astro.props;
+---
+
+<div class="developer">
+  <div class="developer-header">
+    <img src={avatar} alt={name} class="developer-avatar" />
+    <div class="developer-name">
+      <h4>{name}</h4>
+      <p class="developer-role">{role}</p>
+    </div>
+  </div>
+  <p class="developer-bio">
+    {bio}
+  </p>
+  <div class="developer-skills">
+    {skills.map((skill) => <span>{skill}</span>)}
+  </div>
+  <div class="developer-social">
+    {
+      github && (
+        <a
+          href={github}
+          target="_blank"
+          aria-label={`GitHub de ${name.split(" ")[0]}`}
+        >
+          <IconGitHub />
+        </a>
+      )
+    }
+    {
+      linkedin && (
+        <a
+          href={linkedin}
+          target="_blank"
+          aria-label={`LinkedIn de ${name.split(" ")[0]}`}
+        >
+          <IconLinkedIn />
+        </a>
+      )
+    }
+    {
+      twitter && (
+        <a
+          href={twitter}
+          target="_blank"
+          aria-label={`X de ${name.split(" ")[0]}`}
+        >
+          <IconX />
+        </a>
+      )
+    }
+    {
+      website && (
+        <a
+          href={website}
+          target="_blank"
+          aria-label={`Sitio web de ${name.split(" ")[0]}`}
+        >
+          <IconLink />
+        </a>
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .developer {
+    background-color: rgba(var(--accent-light-rgb), 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: left;
+    cursor: default;
+    user-select: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+  }
+
+  .developer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .developer-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .developer-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    border: 3px solid var(--accent-light);
+    transition: transform 0.3s;
+  }
+
+  .developer:hover .developer-avatar {
+    transform: scale(1.05);
+  }
+
+  .developer-name {
+    flex: 1;
+  }
+
+  .developer-name h4 {
+    margin: 0;
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .developer-role {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-color);
+  }
+
+  .developer-bio {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+  }
+
+  .developer-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .developer-skills span {
+    background-color: rgba(var(--accent-light-rgb), 0.2);
+    color: var(--accent);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition:
+      background-color 0.3s,
+      transform 0.3s;
+  }
+
+  .developer-skills span:hover {
+    background-color: rgba(var(--accent-light-rgb), 0.4);
+    transform: scale(1.05);
+  }
+
+  .developer-social {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  .developer-social a {
+    color: var(--text-color);
+    transition:
+      transform 0.3s,
+      color 0.3s;
+  }
+
+  .developer-social a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  .developer-social svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+
+  /* Dark mode specific adjustments */
+  :root.dark .developer {
+    background-color: rgba(var(--accent-dark-rgb), 0.2);
+  }
+
+  :root.dark .developer-skills span {
+    background-color: rgba(var(--accent-dark-rgb), 0.3);
+    color: var(--accent-light);
+  }
+
+  :root.dark .developer-skills span:hover {
+    background-color: rgba(var(--accent-dark-rgb), 0.5);
+  }
+
+  :root.dark .developer-social a:hover {
+    color: var(--accent-light);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .developer-header {
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+    }
+
+    .developer-avatar {
+      margin-right: 1rem;
+      margin-bottom: 0;
+      width: 60px;
+      height: 60px;
+    }
+
+    .developer-name {
+      flex: 1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .developer-header {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .developer-avatar {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+    }
+  }
+</style>
