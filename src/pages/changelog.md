@@ -1,5 +1,5 @@
 ---
-title: "Registro de cambios"
+title: "Caffy - Registro de cambios"
 description: "Registro de cambios de la aplicación Caffy"
 layout: "../layouts/markdown.astro"
 ---

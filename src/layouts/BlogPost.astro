@@ -11,9 +11,10 @@ type Props = CollectionEntry<"blog">["data"];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="es">
   <head>
     <BaseHead title={title} description={description} />
+    <link rel="icon" href="/Caffy.svg" type="image/png" />
     <ClientRouter />
     <style>
       main {
