@@ -84,10 +84,17 @@ const categories = [
   description="Conoce más sobre Caffy, la aplicación que te conecta con lo mejor de Colombia."
   pubDate={new Date("May 07 2025")}
 >
-  <div class="hero-section">
-    <img src="/icon-fill.svg" alt="Logo de Caffy" class="logo" />
-    <h1>¡Descubre Colombia en la palma de tu mano!</h1>
-    <p class="tagline">
+  <div class="hero-section" transition:animate="slide">
+    <img
+      src="/icon-fill.svg"
+      alt="Logo de Caffy"
+      class="logo"
+      transition:animate="fade"
+    />
+    <h1 transition:animate="fade">
+      ¡Descubre Colombia en la palma de tu mano!
+    </h1>
+    <p class="tagline" transition:animate="fade">
       Explora cada rincón de este país mágico, desde sus majestuosas montañas
       hasta sus exuberantes selvas. Sumérgete en su rica cultura, tradiciones
       vibrantes y la calidez de su gente. Encuentra información detallada sobre
@@ -96,9 +103,9 @@ const categories = [
     </p>
   </div>
 
-  <section class="features">
-    <h2>¿Qué te ofrece esta app?</h2>
-    <ul>
+  <section class="features" transition:animate="slide">
+    <h2 transition:animate="fade">¿Qué te ofrece esta app?</h2>
+    <ul transition:animate="fade">
       <li>
         <strong>Exploración interactiva:</strong> Mapas detallados y herramientas
         de búsqueda para encontrar lo que buscas.
@@ -114,8 +121,8 @@ const categories = [
     </ul>
   </section>
 
-  <section class="content-categories">
-    <h2>Explora Colombia</h2>
+  <section class="content-categories" transition:animate="slide">
+    <h2 transition:animate="fade">Explora Colombia</h2>
     <div class="categories-grid">
       {
         categories.map((category) => (
@@ -125,9 +132,9 @@ const categories = [
     </div>
   </section>
 
-  <section class="development">
-    <h2>Acerca del desarrollador</h2>
-    <p>
+  <section class="development" transition:animate="slide">
+    <h2 transition:animate="fade">Acerca del desarrollador</h2>
+    <p transition:animate="fade">
       La aplicación fue desarrollada por <a
         href="https://github.com/Mist-Code-co"
         target="_blank">MistCode</a
@@ -138,8 +145,8 @@ const categories = [
       <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>.
     </p>
 
-    <h3>Equipo de Desarrollo</h3>
-    <div class="developers">
+    <h3 transition:animate="fade">Equipo de Desarrollo</h3>
+    <div class="developers" transition:animate="fade">
       {
         developers.map((developer) => (
           <DeveloperCard
@@ -158,7 +165,7 @@ const categories = [
     </div>
   </section>
 
-  <AppVersion />
+  <AppVersion transition:animate="fade" />
 </Layout>
 
 <style>

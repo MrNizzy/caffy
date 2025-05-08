@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { ClientRouter } from "astro:transitions";
 import {
   SITE_TITLE,
   SITE_DESCRIPTION,
@@ -15,18 +16,22 @@ import PlayStoreButton from "../components/PlayStoreButton.astro";
 <html lang="es">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <ClientRouter />
   </head>
   <body>
     <Header />
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" transition:animate="slide">
       <div class="hero-content">
-        <h1 class="title">{SITE_TITLE_LONG} <span class="flag">🇨🇴</span></h1>
-        <p class="tagline">{SITE_DESCRIPTION}</p>
+        <h1 class="title" transition:animate="fade">
+          {SITE_TITLE_LONG}
+          <span class="flag">🇨🇴</span>
+        </h1>
+        <p class="tagline" transition:animate="fade">{SITE_DESCRIPTION}</p>
         <PlayStoreButton />
       </div>
-      <div class="hero-image">
+      <div class="hero-image" transition:animate="fade">
         <img
           src="/mockup_landing.jpeg"
           alt="Aplicación Caffy - Colombia"
@@ -37,11 +42,11 @@ import PlayStoreButton from "../components/PlayStoreButton.astro";
     </section>
 
     <!-- Features Section -->
-    <section class="features">
-      <h2>Descubre Colombia como nunca antes</h2>
+    <section class="features" transition:animate="slide">
+      <h2 transition:animate="fade">Descubre Colombia como nunca antes</h2>
 
       <div class="feature-grid">
-        <div class="feature-card">
+        <div class="feature-card" transition:animate="fade">
           <div class="feature-icon">
             <img
               src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Automobile.png"
@@ -57,7 +62,7 @@ import PlayStoreButton from "../components/PlayStoreButton.astro";
           </p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card" transition:animate="fade">
           <div class="feature-icon">
             <img
               src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Cook%20Medium%20Skin%20Tone.png"
@@ -73,7 +78,7 @@ import PlayStoreButton from "../components/PlayStoreButton.astro";
           </p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card" transition:animate="fade">
           <div class="feature-icon">
             <img
               src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Artist%20Medium-Dark%20Skin%20Tone.png"
@@ -89,7 +94,7 @@ import PlayStoreButton from "../components/PlayStoreButton.astro";
           </p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card" transition:animate="fade">
           <div class="feature-icon">
             <img
               src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Butterfly.png"
@@ -106,7 +111,7 @@ import PlayStoreButton from "../components/PlayStoreButton.astro";
           </p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card" transition:animate="fade">
           <div class="feature-icon">
             <img
               src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Yellow%20Heart.png"
@@ -125,7 +130,7 @@ import PlayStoreButton from "../components/PlayStoreButton.astro";
     </section>
 
     <!-- App Preview Section -->
-    <section class="app-preview">
+    <section class="app-preview" transition:animate="slide">
       <div class="preview-content">
         <h2>La guía definitiva de Colombia en tu bolsillo</h2>
         <p>
@@ -162,7 +167,7 @@ import PlayStoreButton from "../components/PlayStoreButton.astro";
     </section>
 
     <!-- Final CTA Section -->
-    <section class="final-cta">
+    <section class="final-cta" transition:animate="slide">
       <h2>¡Descarga ahora y comienza tu aventura mágica!</h2>
       <PlayStoreButton />
     </section>
